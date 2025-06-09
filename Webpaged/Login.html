@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - BIO adventure</title>
+    <title>Login - BIO advanture</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter -->
@@ -20,6 +20,34 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        /* 3D Pushable Button Styles */
+        .pushable {
+            background: hsl(244, 52%, 40%); /* Darker Indigo */
+            border-radius: 12px;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            outline-offset: 4px;
+            transition: filter 0.1s ease-in-out;
+        }
+        .front {
+            display: block;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 1rem;
+            background: hsl(243, 58%, 59%); /* Main Indigo: #4f46e5 */
+            color: white;
+            transform: translateY(-6px);
+            transition: transform 0.1s ease-in-out;
+            will-change: transform;
+        }
+        .pushable:hover {
+            filter: brightness(110%);
+        }
+        .pushable:active .front {
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen">
@@ -29,7 +57,7 @@
             <!-- Logo -->
             <a href="index.html" class="inline-block">
                 <h1 class="text-5xl font-bold logo-gradient-text">BIO</h1>
-                <span class="text-2xl font-semibold text-indigo-400 -mt-2">adventure</span>
+                <span class="text-2xl font-semibold text-indigo-400 -mt-2">advanture</span>
             </a>
         </div>
 
@@ -65,10 +93,22 @@
                 </div>
                 
                 <!-- Buttons -->
-                <div class="space-y-3">
-                    <button type="submit" class="w-full text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-800 font-medium rounded-lg text-sm px-5 py-3 text-center">Login</button>
-                    <button type="button" class="w-full text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-800 font-medium rounded-lg text-sm px-5 py-3 text-center">Forgot password?</button>
-                    <button type="button" class="w-full text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-800 font-medium rounded-lg text-sm px-5 py-3 text-center">Sign in</button>
+                <div class="space-y-4">
+                    <button class="pushable w-full" type="submit">
+                        <span class="front font-medium text-center">
+                            Login
+                        </span>
+                    </button>
+                    <button class="pushable w-full" type="button">
+                        <span class="front font-medium text-center">
+                            Forgot password?
+                        </span>
+                    </button>
+                    <button class="pushable w-full" type="button">
+                        <span class="front font-medium text-center">
+                            Sign in
+                        </span>
+                    </button>
                 </div>
             </form>
         </div>
@@ -76,4 +116,3 @@
 
 </body>
 </html>
-
